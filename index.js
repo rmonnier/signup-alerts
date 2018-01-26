@@ -5,15 +5,16 @@ app.set('port', process.env.PORT || 8000);
 app.use(bodyParser.json());
 
 app.use((req, res) => {
-    console.log("Incoming request");
+    console.log(req.body)
+    res.end();
 })
 
-app.post("/", (req, res) => {
+// app.post("/", (req, res) => {
 
-    console.log(req.body);
+//     console.log(req.body);
 
-  res.send(200);
-});
+//   res.send(200);
+// });
 
 app.listen(app.get('port'), () => {
     console.log('App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env'));
