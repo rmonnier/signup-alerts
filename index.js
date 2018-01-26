@@ -1,7 +1,9 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
+const logger = require('morgan');
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 9001);
+app.use(logger('dev'));
 app.use(bodyParser.json());
 
 app.use((req, res) => {
@@ -9,12 +11,10 @@ app.use((req, res) => {
     res.end();
 })
 
-// app.post("/", (req, res) => {
-
-//     console.log(req.body);
-
-//   res.send(200);
-// });
+app.post("/", (req, res) => {
+console.log(req.body);
+  res.end();
+});
 
 app.listen(app.get('port'), () => {
     console.log('App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env'));
