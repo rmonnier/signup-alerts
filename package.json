@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-"clearbit": "^1.3.3",
-"kmjs-core": "^0.3.5",
+    "clearbit": "^1.3.3",
     "express": "^4.16.2",
+    "kmjs-core": "^0.3.5",
+    "morgan": "^1.9.0",
     "nodemon": "^1.14.11"
   }
 }
