@@ -5,9 +5,10 @@ var Person = clearbit.Person;
 
 
 let enrich = email => {
-  Person.find({email: email})
+  return Person.find({email: email})
     .then(function (person) {
       console.log(person);
+      return person;
     })
     .catch(Person.QueuedError, function (err) {
       console.log(err); // Person is queued
@@ -20,5 +21,5 @@ let enrich = email => {
     });
 };
 
-enrich('alexandre@keymetrics.io')
+// enrich('alexandre@keymetrics.io')
 
