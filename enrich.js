@@ -21,5 +21,7 @@ let enrich = email => {
     });
 };
 
+module.exports = enrich;
+
 // enrich('alexandre@keymetrics.io')
 
