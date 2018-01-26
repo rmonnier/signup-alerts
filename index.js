@@ -14,9 +14,13 @@ app.use(async (req, res) => {
         const { email } = req.body.data.item;
 
         console.log(email);
-        const userEnriched = await enrich(email);
-        say(`New user ${userEnriched.name.fullName} just signed up !`);
-        console.log(userEnriched);
+        try {
+            const userEnriched = await enrich(email);
+            say(`New user ${userEnriched.name.fullName} just signed up !`);
+            console.log(userEnriched);
+        } catch (e) {
+            
+        }
     }
     res.end();
 });
