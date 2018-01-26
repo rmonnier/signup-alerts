@@ -1,16 +1,20 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 const logger = require('morgan');
+const enrich = require('./enrich');
 
 app.set('port', process.env.PORT || 9009);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
 app.use((req, res) => {
-    console.log(req);
     const { body } = req;
     if (body.data && body.data.item) {
-        console.log(req.body.data.item.email)
+        const { email } = req.body.data.item;
+
+        console.log(email);
+        const userEnriched = enrich(email);
+        console.log(userEnriched);
     }
     res.end();
 });
