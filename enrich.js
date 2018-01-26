@@ -1,11 +1,10 @@
-const clearbit_key = process.env.CLEARBIT_KEY;
+const clearbit = require('clearbit')(process.env.CLEARBIT_KEY);
+console.log(process.env.CLEARBIT_KEY)
+const Person = clearbit.Person;
 
-var clearbit = require('clearbit')(clearbit_key);
-var Person = clearbit.Person;
 
-
-let enrich = email => {
-  return Person.find({email: email})
+let enrich = async email => {
+  return await Person.find({email: email})
     .then(function (person) {
       console.log(person);
       return person;
@@ -17,7 +16,7 @@ let enrich = email => {
       console.log(err); // Person could not be found
     })
     .catch(function (err) {
-      console.log('Bad/invalid request, unauthorized, Clearbit error, or failed request');
+      console.log('Bad/invalid request, unauthorized, Clearbit error, or failed request', err);
     });
 };
 

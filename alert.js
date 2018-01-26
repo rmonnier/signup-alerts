@@ -3,9 +3,6 @@ const Keymetrics = require('kmjs-core');
 // config
 const km_token = process.env.KM_TOKEN;
 
-// the text to say
-let text = 'lol';
-
 let km = new Keymetrics();
 
 setInterval(function(){},1000);
@@ -32,4 +29,4 @@ let say = what => {
     .catch(console.error);
 };
 
-say(text);
+module.exports = say;
